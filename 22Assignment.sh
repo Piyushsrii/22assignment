@@ -213,3 +213,62 @@ public class Employee
         }
 
 }
+
+###UserCase-8###
+Problem Statement----->Compute Employee Wage for multiple companies - Note: Each Company has its own wage, number of working days and working hours per month - Use Class Method with function
+parameters instead of Class Variables.
+public class EmpWageOOPs1
+{
+        public static final int IS_PART_TIME=1;
+        public static final int IS_FULL_TIME=2;
+
+        public final int EMP_RATE_PER_HOUR;
+        public final int NUM_OF_WORKING_DAYS;
+        public final int MAX_HRS_IN_MONTHS;
+        public final String company;
+
+        public EmpWageOOPs1(String company, int empRate, int numOfDays, int maxDays)
+        {
+                     this.company=company;
+                     EMP_RATE_PER_HOUR=empRate;
+                     NUM_OF_WORKING_DAYS=numOfDays;
+                     MAX_HRS_IN_MONTHS=maxDays;
+        }
+        public void calculateWageForCompany()
+        {
+        int totalEmpHrs=0;
+        int totalEmpWage=0;
+        int totalWorkingDays=0;
+        while(totalEmpHrs < MAX_HRS_IN_MONTHS && totalWorkingDays < NUM_OF_WORKING_DAYS)
+        {
+         totalWorkingDays++;
+         int empHrs=0,empWage=0;
+         int empcheck=(int) Math.floor(Math.random()*10)%3;
+         switch(empcheck)
+        {
+           case IS_FULL_TIME:
+           empHrs=8;
+           break;
+           case IS_PART_TIME:
+           empHrs=4;
+           break;
+           default:
+           empHrs=0;
+        }
+         totalEmpHrs+= empHrs;
+         empWage=empHrs*EMP_RATE_PER_HOUR;
+         totalEmpWage += empWage;
+         System.out.println("Employee wage :"+company+" "+empWage);
+        }
+         System.out.println("total Employee wage : " + totalEmpWage);
+        }
+
+        public static void main(String args[])
+        {
+        EmpWageOOPs1 dmart=new EmpWageOOPs1("DMART",2,4,6);
+        dmart.calculateWageForCompany();
+        EmpWageOOPs1 reliance=new EmpWageOOPs1("Reliance",4,8,6);
+        reliance.calculateWageForCompany();
+        }
+}
+
