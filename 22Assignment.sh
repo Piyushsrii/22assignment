@@ -84,3 +84,6 @@ public class Employee
         }
 
 }
+
+###UserCase-4###
+Problem Statement------>Solving using Switch Case Statement
